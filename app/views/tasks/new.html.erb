@@ -1,0 +1,18 @@
+<div class="main posts-new">
+  <div class="container">
+    <% @task.errors.full_messages.each do |message| %>
+      <div class="form-error">  
+        <%= message %>
+      </div>
+    <% end %>
+    <h1 class="form-heading">作成する</h1>
+      <div class="form">
+        <div class="form-body">
+        <%= form_tag("/tasks/create") do%>
+            <textarea name="task"><%= @task.task %></textarea>
+            <input type="submit" value="作成">
+        <% end %>
+        </div>
+      </div>
+  </div>
+</div>

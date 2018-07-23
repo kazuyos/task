@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task: MyText
+  description: MyText
+  status: false
+  require: 1
+  deadline: 2018-07-20
+
+two:
+  task: MyText
+  description: MyText
+  status: false
+  require: 1
+  deadline: 2018-07-20

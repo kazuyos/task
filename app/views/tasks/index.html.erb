@@ -1,0 +1,9 @@
+<div class="main posts-new">
+  <div class="container">
+    <% @tasks.each do |task| %>
+      <div class="posts-index-item">
+        <%= link_to(task.task, "/tasks/#{task.id}")%>
+      </div>
+    <% end %>
+  </div>
+</div>
