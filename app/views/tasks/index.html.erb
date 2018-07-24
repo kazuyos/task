@@ -3,6 +3,12 @@
     <% @tasks.each do |task| %>
       <div class="posts-index-item">
         <%= link_to(task.task, "/tasks/#{task.id}")%>
+        <h6>
+        description:<%= task.description %><br>
+        Status:<%= task.status %><br>
+        更新日:<%= task.updated_at %><br>
+        作成日:<%= task.created_at %>
+        </h6>
       </div>
     <% end %>
   </div>

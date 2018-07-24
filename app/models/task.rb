@@ -1,3 +1,7 @@
 class Task < ActiveRecord::Base
-    validates :task, {presence: true}
+    validates :task, :user_id, {presence: true}
+    
+    def user
+        return User.find_by(id: self.user_id)
+    end
 end

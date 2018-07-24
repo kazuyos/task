@@ -1,15 +1,20 @@
 <div class="main posts-show">
   <div class="container">
     <%= @task.task %>
+      <div class="post-user-name">
+        <img class="posts-img" src="<%= "/user_images/#{@user.image_name}" %>">
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
     <div class="post-time">
         <p>
           <%= @task.created_at %>
         </p>
-          <div class="post-menus">
-          <%= link_to("編集","/tasks/#{@task.id}/edit") %>
-          <%= link_to("削除","/tasks/#{@task.id}/destroy",{method: "post"}) %>
-          </div>
-
+      <% if @task.user_id == @current_user.id %>
+        <div class="post-menus">
+          <%= link_to("編集", "/tasks/#{@task.id}/edit") %>
+          <%= link_to("削除", "/tasks/#{@task.id}/destroy", {method: "post"}) %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
