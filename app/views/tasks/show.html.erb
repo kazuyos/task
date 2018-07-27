@@ -9,12 +9,24 @@
         <p>
           <%= @task.created_at %>
         </p>
+      <% if Like.find_by(user_id: @current_user.id, task_id: @task.id) %>
+        いいね! 済み
+        <%= link_to("/likes/#{@task.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn-unlike"></span>
+        <% end %>
+      <% else %>
+        いいね! していません
+        <%= link_to("/likes/#{@task.id}/create", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn"></span>
+        <% end %>
+      <% end %>
       <% if @task.user_id == @current_user.id %>
         <div class="post-menus">
           <%= link_to("編集", "/tasks/#{@task.id}/edit") %>
           <%= link_to("削除", "/tasks/#{@task.id}/destroy", {method: "post"}) %>
         </div>
       <% end %>
+      <%= @likes_count %>
     </div>
   </div>
 </div>

@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+
   get 'users/index' => 'users#index'
   get 'users/new' => 'users#new'
   post 'users/create' => 'users#create'
+  get 'users/:id/likes' => 'users#likes'
   get 'users/:id/edit' => 'users#edit'
   post 'users/:id/update' => 'users#update'
   get 'users/:id' => 'users#show'
   get "login" => "users#login_form"
   post "login" => "users#login"
   post "logout" => "users#logout"
+  get 'signup' => 'users#new'
   
   get 'tasks/index' => 'tasks#index'
   get 'tasks/new' => 'tasks#new'
@@ -16,6 +19,9 @@ Rails.application.routes.draw do
   post 'tasks/:id/update' => 'tasks#update'
   post 'tasks/:id/destroy' => 'tasks#destroy'
   get 'tasks/:id' => 'tasks#show'
+  
+  post 'likes/:task_id/create' => 'likes#create'
+  post 'likes/:task_id/destroy' => 'likes#destroy'
   
   get '/' => 'home#top'
   get '/about' => 'home#about'

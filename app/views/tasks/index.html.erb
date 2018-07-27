@@ -1,15 +1,21 @@
 <div class="main posts-new">
-  <div class="container">
-    <% @tasks.each do |task| %>
-      <div class="posts-index-item">
-        <%= link_to(task.task, "/tasks/#{task.id}")%>
-        <h6>
-        description:<%= task.description %><br>
-        Status:<%= task.status %><br>
-        更新日:<%= task.updated_at %><br>
-        作成日:<%= task.created_at %>
-        </h6>
+  <div class="posts-table-item">
+    <table class="bordered">
+      <thead>
+      <tr>
+        <th>Task</th>
+        <th>description</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <% @tasks.each do |task| %>
+        <tr>
+            <td><%= link_to(task.task, "/tasks/#{task.id}")%></td>
+            <td><%= task.description %></td>
+            <td><%= task.status %></td>
+        </tr>
       </div>
     <% end %>
+    </table>
   </div>
 </div>
