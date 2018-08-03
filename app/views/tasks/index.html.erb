@@ -1,21 +1,61 @@
+    <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/> 
+    <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+    <script>
+        jQuery(function($){
+            $("#data-table").DataTable();
+        });
+    </script>
 <div class="main posts-new">
   <div class="posts-table-item">
-    <table class="bordered">
+    <h2>Inbox</h2>
+    <table id="data-table" class="table01">
       <thead>
       <tr>
         <th>Task</th>
-        <th>description</th>
         <th>Status</th>
+        <th>締め切り</th>
+        <th></th>
       </tr>
       </thead>
       <% @tasks.each do |task| %>
         <tr>
             <td><%= link_to(task.task, "/tasks/#{task.id}")%></td>
-            <td><%= task.description %></td>
-            <td><%= task.status %></td>
+            <% if task.status == true %>
+              <td><i class="far fa-check-circle fa-2x complete-btn"></i></td>
+            <% else %>
+              <td></td>
+            <% end %>
+            <td><%= task.deadline %></td>
+            <td><%= button_to "削除", "/tasks/#{task.id}/destroy", :method => :post, class:"myButton" %></td>
         </tr>
       </div>
-    <% end %>
+      <% end %>
     </table>
+  <br>
+  <h2>完了済み</h2>
+  <table class="table01">
+      <thead>
+      <tr>
+        <th>Task</th>
+        <th>Status</th>
+        <th>締め切り</th>
+        <th></th>
+      </tr>
+      </thead>
+      <% @oldtasks.each do |task| %>
+        <tr>
+            <td><%= link_to(task.task, "/tasks/#{task.id}")%></td>
+            <% if task.status == true %>
+              <td><i class="far fa-check-circle fa-2x complete-btn"></i></td>
+            <% else %>
+              <td></td>
+            <% end %>
+            <td><%= task.deadline %></td>
+            <td><%= button_to "削除", "/tasks/#{task.id}/destroy", :method => :post, class:"myButton" %></td>
+        </tr>
+      </div>
+      <% end %>
+    </table>
+  </div>
   </div>
 </div>

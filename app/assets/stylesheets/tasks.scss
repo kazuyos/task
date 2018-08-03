@@ -46,61 +46,9 @@
   margin-right: 10%;
 }
 
-table {
-    *border-collapse: collapse; /* IE7 and lower */
-    border-spacing: 0;
-
-}
-
-thead {
-    *border-collapse: collapse; /* IE7 and lower */
-    border-spacing: 0;
-}
-
-th:first-child {
-    -moz-border-radius: 6px 0 0 0;
-    -webkit-border-radius: 6px 0 0 0;
-    border-radius: 6px 0 0 0;
-}
- 
-th:last-child {
-    -moz-border-radius: 0 6px 0 0;
-    -webkit-border-radius: 0 6px 0 0;
-    border-radius: 0 6px 0 0;
-}
-
-.bordered tr:hover
-{
-    background: #fbf8e9;
-    -o-transition: all 0.1s ease-in-out;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
-}
-
-.highlight
-{
-  background: #fbf8e9;
-  -o-transition: all 0.1s ease-in-out;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-}
-
-.zebra tbody tr:nth-child(even) {
-    background: #f5f5f5;
-    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
-    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-}
-
-.alternate {
-    background: #f5f5f5;
-    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
-    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
-    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+.main-table {
+  margin-top: 100px auto;
+  clear: both;
 }
 
 /* posts/show ================================ */
@@ -170,6 +118,41 @@ th:last-child {
 }
 
 
+.complete-btn {
+  color: #008000;
+  text-align: center;
+}
+
+.uncomplete-btn {
+  color: #ff2581;
+  text-align: center;
+}
+
+.myButton {
+	background-color:#56de07;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #13f029;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:8px 14px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#77f731;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
 /* posts/new ================================ */
 .posts-new textarea {
   font-size: 20px;
@@ -184,3 +167,64 @@ th:last-child {
   opacity: 0.5;
 }
 
+/* #################################responsible table############################## */
+
+table.table01 {
+  margin-top:0px;
+	width:100%;
+	border-right:#3AB1C6 solid 1px;
+	border-collapse: collapse;
+	background-color: #f5f8fa;
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+table.table01 thead th {
+	background:#3ecdc6;
+	color:#FFF;
+	padding:10px 15px;
+	border-right:#FFF solid 1px;
+	border-bottom:#FFF solid 1px;
+}
+table.table01 thead th:last-child {
+	border-right:#3EB1C6 solid 1px;
+}
+table.table01 tbody th {
+	background:#3EB1C6;
+	color:#FFF;
+	padding:10px 15px;
+	border-bottom:#FFF solid 1px;
+	vertical-align:top;
+}
+table.table01 tbody tr:last-child th {
+	border-bottom:#3EB1C6 solid 1px;
+}
+table.table01 tbody td {
+	background:#FFF;
+	padding:10px 15px;
+	border-left:#3EB1C6 solid 1px;
+	border-bottom:#3EB1C6 solid 1px;
+	vertical-align:top;
+}
+ 
+@media screen and (max-width: 640px) {
+table.table01 thead {
+	display:none;
+}
+table.table01 tbody th {
+	display:block;
+}
+table.table01 tbody td {
+	display:block;
+}
+table.table01 tbody td::before {
+	content: attr(label);
+	float: left;
+	clear:both;
+	font-weight:bold;
+}
+
+table.table01 tbody td p {
+	padding-left:6em;
+}
+
+}

@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   
   def index
-    @tasks = Task.all.order(created_at: :desc)
+    @tasks =  Task.where(user_id: @current_user.id).where(status: nil ).order(deadline: :asc)
+    @oldtasks =  Task.where(user_id: @current_user.id).where(status: true ).order(deadline: :asc)
   end
   
   def show
@@ -33,6 +34,9 @@ class TasksController < ApplicationController
   def update
     @task = Task.find_by(id: params[:id])
     @task.task = params[:task]
+    @task.description = params[:description]
+    @task.status = params[:status]
+    @task.deadline = params[:deadline]
     
     if @task.save
       redirect_to("/tasks/index")

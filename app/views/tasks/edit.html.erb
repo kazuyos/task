@@ -5,7 +5,22 @@
         <div class="form-body">
 
           <%= form_tag("/tasks/#{@task.id}/update") do %>
+            <h2>Task</h2>
             <textarea name="task"><%= @task.task %></textarea>
+            <h2>description</h2>
+            <textarea name="description"><%= @task.description %></textarea>
+            <h2>完了</h2>
+            <% if @task.status == true %>
+              <%= check_box '', 'status', {:checked => true}, true, false %>
+            <% else %>
+              <%= check_box '', 'status',{}, true, false %>
+            <% end %>
+            <h2>期限</h2>
+            <% if @task.deadline == "" %>
+              <input type="date" name="deadline" value=<%= Date.today %>></input>
+            <% else %>
+              <input type="date" name="deadline" value=<%= @task.deadline %>></input>
+            <% end %>
             <input type="submit" value="保存">
           <% end %>
         </div>

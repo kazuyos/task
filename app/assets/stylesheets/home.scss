@@ -1,6 +1,3 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 /* reset ================================ */
 * {
   box-sizing: border-box;
@@ -167,7 +164,7 @@ header {
 }
 
 .about-img {
-  width: 30vw;
+  width: 84%;
 }
 
 /* フォーム================================ */
@@ -226,6 +223,10 @@ header {
   content: '';
   display: table;
   clear: both;
+}
+
+.form-checkbox {
+  text-align : center ;
 }
 
 /* フラッシュ ================================ */
